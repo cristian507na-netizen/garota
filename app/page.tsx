@@ -156,16 +156,6 @@ export default function HomePage() {
             </span>
           </div>
 
-          {/* Mobile WhatsApp link */}
-          <a
-            href={waLink(`Hola ${site.name} ✨, quiero información.`)}
-            target="_blank"
-            rel="noreferrer"
-            className="sm:hidden mt-3 inline-flex items-center gap-1.5 text-xs text-white/65 uppercase tracking-[0.2em]"
-          >
-            <MessageCircle className="h-3.5 w-3.5" strokeWidth={1.5} />
-            Escríbenos por WhatsApp
-          </a>
         </div>
 
         {/* Scroll indicator — mobile */}
