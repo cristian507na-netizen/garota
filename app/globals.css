@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* ── Pastel light palette — inspired by Garotas logo ── */
+  --color-background: oklch(0.99 0.004 30);        /* warm white */
+  --color-foreground: oklch(0.14 0.01 25);          /* deep charcoal */
+
+  --color-card: oklch(0.975 0.006 22);              /* soft cream */
+  --color-card-foreground: oklch(0.14 0.01 25);
+
+  --color-popover: oklch(0.985 0.004 25);
+  --color-popover-foreground: oklch(0.14 0.01 25);
+
+  --color-primary: oklch(0.60 0.14 15);             /* dusty rose-red */
+  --color-primary-foreground: oklch(0.99 0.003 30);
+
+  --color-secondary: oklch(0.95 0.014 15);          /* blush pink */
+  --color-secondary-foreground: oklch(0.25 0.01 25);
+
+  --color-muted: oklch(0.93 0.008 25);              /* soft warm gray */
+  --color-muted-foreground: oklch(0.50 0.012 25);
+
+  --color-accent: oklch(0.93 0.018 15);             /* light rose */
+  --color-accent-foreground: oklch(0.14 0.01 25);
+
+  --color-destructive: oklch(0.55 0.22 27);
+  --color-destructive-foreground: oklch(0.99 0.005 95);
+
+  --color-border: oklch(0.88 0.014 20);             /* warm soft border */
+  --color-input: oklch(0.90 0.010 22);
+  --color-ring: oklch(0.60 0.14 15);
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --font-sans: var(--font-sans-stack);
+  --font-display: var(--font-display-stack);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display), serif;
+    letter-spacing: -0.01em;
+    color: var(--color-foreground);
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display), serif;
+  letter-spacing: -0.01em;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 22s linear infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }

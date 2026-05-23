@@ -1,0 +1,423 @@
+import Image from "next/image"
+import Link from "next/link"
+import { Suspense } from "react"
+import {
+  ArrowRight,
+  CheckCircle2,
+  Instagram,
+  MapPin,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Zap,
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Newsletter } from "@/components/newsletter"
+import { ServiceCard } from "@/components/service-card"
+import { BookingForm } from "@/components/booking-form"
+import { getFeatured } from "@/lib/services"
+import { site, waLink } from "@/lib/site"
+
+const categories = [
+  {
+    name: "Faciales",
+    href: "/servicios?cat=facial",
+    img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
+    desc: "Limpieza · Anti-edad · Lifting",
+  },
+  {
+    name: "Reductor",
+    href: "/servicios?cat=reductor",
+    img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80",
+    desc: "Masajes · Maderoterapia · Drenajes",
+  },
+  {
+    name: "Uñas",
+    href: "/servicios?cat=nails",
+    img: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop&q=80",
+    desc: "Gel · Acrílico · Nail Art",
+  },
+  {
+    name: "Láser",
+    href: "/servicios?cat=laser",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
+    desc: "Depilación · Micropigmentación",
+  },
+  {
+    name: "Cabello",
+    href: "/servicios?cat=spa",
+    img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop&q=80",
+    desc: "Corte · Peinado · Tratamientos",
+  },
+]
+
+const benefits = [
+  {
+    icon: ShieldCheck,
+    title: "Productos premium",
+    desc: "Trabajamos solo con marcas de calidad certificada para cuidar tu piel.",
+  },
+  {
+    icon: Sparkles,
+    title: "Diseños únicos",
+    desc: "Cada tratamiento y diseño es personalizado según tus necesidades.",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Higiene garantizada",
+    desc: "Equipos esterilizados y protocolos de higiene estrictos en cada servicio.",
+  },
+  {
+    icon: Star,
+    title: "Atención personalizada",
+    desc: "Te atendemos con cariño. Tu bienestar es nuestra prioridad.",
+  },
+]
+
+const marqueeItems = [
+  "Gel", "Acrílico", "Nail Art", "Pedicure", "Spa", "Drenaje Linfático",
+  "Lifting Facial", "Depilación Láser", "Maderoterapia", "Micropigmentación",
+  "Francés", "Press-on", "Tratamiento Anti-edad",
+]
+
+export default function HomePage() {
+  const featured = getFeatured(6)
+
+  return (
+    <>
+      {/* ── HERO FULLBLEED CINEMATIC ─────────────────────────────── */}
+      <section className="relative -mt-20 md:-mt-28 h-screen min-h-[580px] max-h-[960px] overflow-hidden">
+        {/* Background image — full bleed */}
+        <Image
+          src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1920&auto=format&fit=crop&q=85"
+          alt="Garotas Salón & Spa — tratamiento de bienestar"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Layered gradients for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/25 to-black/12" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+
+        {/* Top-right badge */}
+        <div className="absolute top-24 md:top-28 right-6 md:right-12">
+          <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2.5 rounded-full text-xs font-medium text-white/90 tracking-wide">
+            <span className="size-2 rounded-full bg-primary animate-pulse" />
+            Salón &amp; Spa Premium
+          </span>
+        </div>
+
+        {/* Bottom content */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 md:px-14 lg:px-20 pb-8 md:pb-12 lg:pb-14">
+          {/* Description — left side, above headline */}
+          <p className="text-white/75 text-sm md:text-[15px] leading-relaxed max-w-[280px] md:max-w-xs mb-5 md:mb-7">
+            Entra a un santuario de paz diseñado para restaurar el balance,
+            liberar tensión y rejuvenecer tu cuerpo y mente con tratamientos
+            personalizados.
+          </p>
+
+          {/* Mega headline — full width */}
+          <h1 className="font-display font-bold text-white leading-[0.88] tracking-tight text-[11vw] sm:text-[9.5vw] md:text-[8.5vw] lg:text-[7.8vw] whitespace-nowrap">
+            Brillar. Relajar. Renovar.
+          </h1>
+
+          {/* CTA row below headline */}
+          <div className="mt-7 md:mt-9 flex flex-wrap items-center gap-4">
+            <Button asChild size="lg" className="shadow-lg">
+              <Link href="/reservar">Reservar cita</Link>
+            </Button>
+            <a
+              href={waLink(`Hola ${site.name} ✨, quiero información sobre sus servicios.`)}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-white/80 uppercase tracking-[0.25em] hover:text-white transition-colors"
+            >
+              <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+              WhatsApp
+            </a>
+            <span className="hidden md:block ml-auto text-xs text-white/45 uppercase tracking-[0.3em]">
+              {site.hours}
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS ─────────────────────────────── */}
+      <section className="border-b border-border">
+        <div className="container-page grid grid-cols-3 divide-x divide-border">
+          {[
+            { label: "Servicios", value: "15+" },
+            { label: "Clientes satisfechas", value: "2k+" },
+            { label: "Años de experiencia", value: "5+" },
+          ].map((t) => (
+            <div key={t.label} className="py-8 px-4 text-center">
+              <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-1">
+                {t.label}
+              </p>
+              <p className="font-display text-3xl md:text-4xl text-foreground">
+                {t.value}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CATEGORIES ─────────────────────────────── */}
+      <section className="container-page py-20 md:py-28">
+        <div className="flex items-end justify-between mb-8 md:mb-12">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.4em] text-primary mb-2">
+              Nuestros servicios
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl">
+              ¿Qué necesitas hoy?
+            </h2>
+          </div>
+          <Link
+            href="/servicios"
+            className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-foreground hover:text-primary transition-colors"
+          >
+            Ver todo
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          {categories.map((c) => (
+            <Link
+              key={c.href}
+              href={c.href}
+              className="group relative aspect-3/4 overflow-hidden bg-muted rounded-xl"
+            >
+              <Image
+                src={c.img}
+                alt={c.name}
+                fill
+                sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+                className="object-cover transition-all duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-background via-background/30 to-transparent group-hover:from-background/90 transition-all duration-500" />
+              <div className="absolute inset-0 p-3 flex flex-col justify-end">
+                <h3 className="font-display text-xl md:text-2xl text-foreground leading-tight">
+                  {c.name}
+                </h3>
+                <p className="text-xs text-foreground/70 mt-1 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                  {c.desc}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FEATURED SERVICES ─────────────────────────────── */}
+      <section className="border-y border-border bg-card/40">
+        <div className="container-page py-20 md:py-28">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.4em] text-primary mb-2 flex items-center gap-2">
+                <Zap className="h-3 w-3" />
+                Más solicitados
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl">
+                Servicios destacados
+              </h2>
+            </div>
+            <Button asChild variant="outline">
+              <Link href="/servicios">Ver todos</Link>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featured.map((s, i) => (
+              <ServiceCard key={s.id} service={s} priority={i < 3} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BOOKING CTA ─────────────────────────────── */}
+      <section id="reservar" className="container-page py-20 md:py-28">
+        <div className="text-center mb-10">
+          <p className="text-[11px] uppercase tracking-[0.4em] text-primary mb-3">
+            Agenda en minutos
+          </p>
+          <h2 className="font-display text-4xl md:text-6xl">
+            Reserva tu cita online
+          </h2>
+          <p className="text-muted-foreground mt-3 max-w-md mx-auto">
+            Elige tu servicio, fecha y hora favorita. Te confirmamos por
+            WhatsApp.
+          </p>
+        </div>
+        <Suspense fallback={<div className="h-64 flex items-center justify-center text-muted-foreground">Cargando formulario…</div>}>
+          <BookingForm />
+        </Suspense>
+      </section>
+
+      {/* ── BENEFITS ─────────────────────────────── */}
+      <section className="border-y border-border bg-card/40">
+        <div className="container-page py-20 md:py-28">
+          <div className="text-center mb-12">
+            <p className="text-[11px] uppercase tracking-[0.4em] text-primary mb-2">
+              Por qué elegirnos
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl">
+              Realizamos tu belleza
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+            {benefits.map((b, i) => (
+              <div
+                key={b.title}
+                style={{ animationDelay: `${120 * i}ms` }}
+                className="group flex md:flex-col items-start md:items-center md:text-center gap-4 p-5 md:p-6 border border-border bg-card hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 rounded-xl animate-in fade-in slide-in-from-bottom-2"
+              >
+                <div className="size-12 grid place-items-center rounded-full border border-border group-hover:scale-110 group-hover:border-primary/60 transition-all">
+                  <b.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-display text-xl text-foreground group-hover:text-primary transition-colors">
+                    {b.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-1">{b.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── MARQUEE ─────────────────────────────── */}
+      <section className="border-y border-border py-10 md:py-14 overflow-hidden bg-secondary/50">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span
+              key={i}
+              className="font-display text-3xl md:text-5xl text-foreground/30 hover:text-primary mx-8 md:mx-10 transition-colors cursor-default"
+            >
+              {item}
+              <span className="text-primary/50 mx-4">✦</span>
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* ── PREMIUM CONTACT ─────────────────────────────── */}
+      <section id="contacto" className="relative overflow-hidden">
+        {/* Decorative gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/70 via-background to-accent/40 pointer-events-none" />
+        {/* Decorative circles */}
+        <div className="absolute -top-32 -right-32 size-96 rounded-full bg-primary/6 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 size-72 rounded-full bg-primary/4 blur-2xl pointer-events-none" />
+
+        <div className="container-page py-24 md:py-36 relative z-10">
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <p className="text-[11px] uppercase tracking-[0.45em] text-primary mb-4">
+              Estamos aquí para ti
+            </p>
+            <h2 className="font-display text-5xl md:text-7xl leading-tight">
+              Habla con{" "}
+              <span className="italic text-primary">nosotras</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground max-w-md mx-auto">
+              Reservas, consultas o simplemente dudas. Estamos a un mensaje de
+              distancia.
+            </p>
+          </div>
+
+          {/* Cards grid */}
+          <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+            {/* Location */}
+            <div className="group bg-card/90 backdrop-blur border border-border rounded-3xl p-8 hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(180,60,60,0.10)] transition-all duration-300 hover:-translate-y-1">
+              <div className="size-12 rounded-2xl bg-primary/10 grid place-items-center mb-6">
+                <MapPin className="h-5 w-5 text-primary" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-2xl mb-3">Encuéntranos</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-2">
+                {site.address}
+              </p>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">
+                {site.hours}
+              </p>
+            </div>
+
+            {/* WhatsApp — highlighted card */}
+            <div className="group relative bg-primary text-primary-foreground rounded-3xl p-8 hover:shadow-[0_20px_56px_rgba(180,60,60,0.28)] transition-all duration-300 hover:-translate-y-2">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+              <div className="size-12 rounded-2xl bg-primary-foreground/15 grid place-items-center mb-6 relative">
+                <MessageCircle className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-2xl mb-3 text-primary-foreground">
+                WhatsApp
+              </h3>
+              <p className="text-sm text-primary-foreground/80 mb-8 leading-relaxed">
+                Reserva tu cita, resuelve dudas o pide asesoría. Te respondemos
+                rápido.
+              </p>
+              <a
+                href={waLink(
+                  `Hola ${site.name} ✨, quiero información sobre sus servicios.`
+                )}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-primary-foreground text-primary px-5 py-3 rounded-full text-sm font-semibold uppercase tracking-wider hover:bg-primary-foreground/90 transition-colors"
+              >
+                Escribir ahora
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <p className="mt-4 text-xs text-primary-foreground/60">
+                {site.whatsappDisplay}
+              </p>
+            </div>
+
+            {/* Instagram */}
+            <div className="group bg-card/90 backdrop-blur border border-border rounded-3xl p-8 hover:border-primary/30 hover:shadow-[0_12px_40px_rgba(180,60,60,0.10)] transition-all duration-300 hover:-translate-y-1">
+              <div className="size-12 rounded-2xl bg-primary/10 grid place-items-center mb-6">
+                <Instagram className="h-5 w-5 text-primary" strokeWidth={1.5} />
+              </div>
+              <h3 className="font-display text-2xl mb-3">Instagram</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-8">
+                Síguenos para ver resultados, promos y nuevos diseños antes que
+                nadie.
+              </p>
+              <a
+                href={site.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground transition-colors group-hover:gap-3"
+              >
+                {site.instagramHandle}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom CTA strip */}
+          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg">
+              <Link href="/reservar">
+                Reservar mi cita
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <a
+              href={`mailto:${site.email}`}
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              {site.email}
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEWSLETTER ─────────────────────────────── */}
+      <Newsletter />
+    </>
+  )
+}
