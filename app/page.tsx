@@ -146,20 +146,19 @@ export default function HomePage() {
       </section>
 
       {/* ── STATS ─────────────────────────────── */}
-      <section className="border-b border-border">
-        <div className="container-page grid grid-cols-3 divide-x divide-border">
+      <section className="border-b border-border bg-secondary/30">
+        <div className="container-page py-4 flex items-center justify-center gap-0">
           {[
             { label: "Servicios", value: "15+" },
             { label: "Clientes satisfechas", value: "2k+" },
             { label: "Años de experiencia", value: "5+" },
-          ].map((t) => (
-            <div key={t.label} className="py-8 px-4 text-center">
-              <p className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-1">
-                {t.label}
-              </p>
-              <p className="font-display text-3xl md:text-4xl text-foreground">
-                {t.value}
-              </p>
+          ].map((t, i) => (
+            <div key={t.label} className="flex items-center">
+              <div className="px-6 md:px-10 text-center">
+                <span className="font-display text-xl md:text-2xl text-foreground">{t.value}</span>
+                <span className="ml-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{t.label}</span>
+              </div>
+              {i < 2 && <div className="w-px h-5 bg-border" />}
             </div>
           ))}
         </div>
