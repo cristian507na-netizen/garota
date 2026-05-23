@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button"
 import { Newsletter } from "@/components/newsletter"
 import { ServiceCard } from "@/components/service-card"
 import { BookingForm } from "@/components/booking-form"
+import { StatsTicker } from "@/components/stats-ticker"
 import { getFeatured } from "@/lib/services"
 import { site, waLink } from "@/lib/site"
 
@@ -87,82 +88,94 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO FULLBLEED CINEMATIC ─────────────────────────────── */}
-      <section className="relative -mt-20 md:-mt-28 h-screen min-h-[580px] max-h-[960px] overflow-hidden">
-        {/* Background image — full bleed */}
+      <section className="relative -mt-20 md:-mt-28 h-screen min-h-[600px] max-h-[960px] overflow-hidden">
+        {/* Background image */}
         <Image
           src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1920&auto=format&fit=crop&q=85"
-          alt="Garotas Salón & Spa — tratamiento de bienestar"
+          alt="Garotas Salón & Spa"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center scale-105 animate-in zoom-in-105 duration-[2000ms] ease-out"
         />
 
-        {/* Layered gradients for depth */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/88 via-black/25 to-black/12" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent" />
+        {/* Multi-layer gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent" />
 
-        {/* Top-right badge */}
-        <div className="absolute top-24 md:top-28 right-6 md:right-12">
-          <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 px-4 py-2.5 rounded-full text-xs font-medium text-white/90 tracking-wide">
-            <span className="size-2 rounded-full bg-primary animate-pulse" />
-            Salón &amp; Spa Premium
+        {/* Decorative top vignette */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/20 to-transparent" />
+
+        {/* Floating badge — hidden on mobile, visible md+ */}
+        <div className="hidden md:block absolute top-28 right-12 animate-in fade-in slide-in-from-right-4 duration-700 delay-300">
+          <span className="inline-flex items-center gap-2 bg-white/12 backdrop-blur-md border border-white/20 px-4 py-2.5 rounded-full text-xs font-medium text-white/85 tracking-wide shadow-lg">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full rounded-full bg-primary/60 animate-ping" />
+              <span className="relative size-2 rounded-full bg-primary" />
+            </span>
+            Salón &amp; Spa Premium · Panamá
           </span>
         </div>
 
         {/* Bottom content */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 md:px-14 lg:px-20 pb-8 md:pb-12 lg:pb-14">
-          {/* Description — left side, above headline */}
-          <p className="text-white/75 text-sm md:text-[15px] leading-relaxed max-w-[280px] md:max-w-xs mb-5 md:mb-7">
-            Entra a un santuario de paz diseñado para restaurar el balance,
-            liberar tensión y rejuvenecer tu cuerpo y mente con tratamientos
-            personalizados.
+        <div className="absolute bottom-0 left-0 right-0 px-5 sm:px-10 md:px-14 lg:px-20 pb-8 md:pb-12 lg:pb-16">
+
+          {/* Description */}
+          <p className="text-white/70 text-[13px] md:text-[15px] leading-relaxed max-w-[240px] md:max-w-xs mb-4 md:mb-6 animate-in fade-in slide-in-from-bottom-2 duration-700">
+            Entra a un santuario diseñado para restaurar el balance y rejuvenecer tu cuerpo y mente.
           </p>
 
-          {/* Mega headline — full width */}
-          <h1 className="font-display font-bold text-white leading-[0.88] tracking-tight text-[11vw] sm:text-[9.5vw] md:text-[8.5vw] lg:text-[7.8vw] whitespace-nowrap">
-            Brillar. Relajar. Renovar.
+          {/* Headline — stacked on mobile, single line on desktop */}
+          <h1 className="font-display font-bold text-white tracking-tight leading-[0.85] animate-in fade-in slide-in-from-bottom-3 duration-700 delay-100">
+            {/* Mobile: each word stacked, large */}
+            <span className="block md:hidden text-[19vw]">Brillar.</span>
+            <span className="block md:hidden text-[19vw]">Relajar.</span>
+            <span className="block md:hidden text-[19vw]">Renovar.</span>
+            {/* Desktop: single line */}
+            <span className="hidden md:block text-[8.5vw] lg:text-[7.6vw] whitespace-nowrap">
+              Brillar. Relajar. Renovar.
+            </span>
           </h1>
 
-          {/* CTA row below headline */}
-          <div className="mt-7 md:mt-9 flex flex-wrap items-center gap-4">
-            <Button asChild size="lg" className="shadow-lg">
+          {/* CTA row */}
+          <div className="mt-6 md:mt-9 flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200">
+            <Button asChild size="lg" className="shadow-[0_8px_24px_rgba(180,60,60,0.35)]">
               <Link href="/reservar">Reservar cita</Link>
             </Button>
             <a
               href={waLink(`Hola ${site.name} ✨, quiero información sobre sus servicios.`)}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-white/80 uppercase tracking-[0.25em] hover:text-white transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 text-sm text-white/80 uppercase tracking-[0.25em] hover:text-white transition-colors"
             >
               <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
               WhatsApp
             </a>
-            <span className="hidden md:block ml-auto text-xs text-white/45 uppercase tracking-[0.3em]">
+            <span className="hidden lg:block ml-auto text-[11px] text-white/40 uppercase tracking-[0.3em]">
               {site.hours}
             </span>
           </div>
+
+          {/* Mobile WhatsApp link */}
+          <a
+            href={waLink(`Hola ${site.name} ✨, quiero información.`)}
+            target="_blank"
+            rel="noreferrer"
+            className="sm:hidden mt-3 inline-flex items-center gap-1.5 text-xs text-white/65 uppercase tracking-[0.2em]"
+          >
+            <MessageCircle className="h-3.5 w-3.5" strokeWidth={1.5} />
+            Escríbenos por WhatsApp
+          </a>
+        </div>
+
+        {/* Scroll indicator — mobile */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-3 md:hidden flex flex-col items-center gap-1 opacity-50">
+          <div className="w-px h-8 bg-gradient-to-b from-transparent to-white/60" />
         </div>
       </section>
 
-      {/* ── STATS ─────────────────────────────── */}
-      <section className="border-b border-border bg-secondary/30">
-        <div className="container-page py-4 flex items-center justify-center gap-0">
-          {[
-            { label: "Servicios", value: "15+" },
-            { label: "Clientes satisfechas", value: "2k+" },
-            { label: "Años de experiencia", value: "5+" },
-          ].map((t, i) => (
-            <div key={t.label} className="flex items-center">
-              <div className="px-6 md:px-10 text-center">
-                <span className="font-display text-xl md:text-2xl text-foreground">{t.value}</span>
-                <span className="ml-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">{t.label}</span>
-              </div>
-              {i < 2 && <div className="w-px h-5 bg-border" />}
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ── ANIMATED STATS TICKER ─────────────────────────────── */}
+      <StatsTicker />
 
       {/* ── CATEGORIES ─────────────────────────────── */}
       <section className="container-page py-20 md:py-28">
