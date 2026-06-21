@@ -22,34 +22,28 @@ import { site, waLink } from "@/lib/site"
 
 const categories = [
   {
-    name: "Faciales",
-    href: "/servicios?cat=facial",
-    img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&auto=format&fit=crop&q=80",
-    desc: "Limpieza · Anti-edad · Lifting",
+    name: "Spa",
+    href: "/servicios?cat=spa",
+    img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80",
+    desc: "Masajes · Faciales · Reductores",
   },
   {
-    name: "Reductor",
-    href: "/servicios?cat=reductor",
-    img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80",
-    desc: "Masajes · Maderoterapia · Drenajes",
+    name: "Depilación",
+    href: "/servicios?cat=depilacion",
+    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
+    desc: "Cera · Piernas · Bikini · Cejas",
+  },
+  {
+    name: "Salón",
+    href: "/servicios?cat=salon",
+    img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop&q=80",
+    desc: "Cortes · Tintes · Mechas · Keratinas",
   },
   {
     name: "Uñas",
     href: "/servicios?cat=nails",
     img: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&auto=format&fit=crop&q=80",
-    desc: "Gel · Acrílico · Nail Art",
-  },
-  {
-    name: "Láser",
-    href: "/servicios?cat=laser",
-    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
-    desc: "Depilación · Micropigmentación",
-  },
-  {
-    name: "Cabello",
-    href: "/servicios?cat=spa",
-    img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&auto=format&fit=crop&q=80",
-    desc: "Corte · Peinado · Tratamientos",
+    desc: "Manicure · Gel · Polygel · Pedispa",
   },
 ]
 
@@ -77,9 +71,9 @@ const benefits = [
 ]
 
 const marqueeItems = [
-  "Gel", "Acrílico", "Nail Art", "Pedicure", "Spa", "Drenaje Linfático",
-  "Lifting Facial", "Depilación Láser", "Maderoterapia", "Micropigmentación",
-  "Francés", "Press-on", "Tratamiento Anti-edad",
+  "Masajes", "Faciales", "Reductores", "Depilación", "Cortes", "Blower",
+  "Maquillaje", "Peinados", "Tintes", "Mechas", "Nanoplastia", "Keratinas",
+  "Manicure", "Pedicure", "Gel", "Polygel", "Pedispa",
 ]
 
 export default function HomePage() {
@@ -187,7 +181,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {categories.map((c) => (
             <Link
               key={c.href}

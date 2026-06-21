@@ -1,9 +1,9 @@
 export const site = {
   name: "Garotas Salón & Spa",
   tagline: "Salón & Spa · Panamá",
-  taglineLong: "Cabello · Uñas · Faciales · Spa · Depilación Láser",
+  taglineLong: "Spa · Masajes · Faciales · Depilación · Cabello · Uñas",
   description:
-    "Garotas Salón & Spa en Panamá City. Faciales, masajes reductores, depilación láser, uñas y peluquería. Realzamos tu belleza con productos de calidad premium.",
+    "Garotas Salón & Spa en Panamá City. Masajes, faciales, paquetes reductores, depilación con cera, cortes, tintes, mechas, keratinas y uñas. Realzamos tu belleza con productos de calidad premium.",
   country: "Panamá",
   city: "Panamá City, Panamá",
   instagram: "https://www.instagram.com/garotassalon.spa/",

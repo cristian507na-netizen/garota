@@ -3,8 +3,8 @@ import Link from "next/link"
 import { Clock } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { cn, formatPrice } from "@/lib/utils"
-import type { Service } from "@/lib/services"
+import { cn } from "@/lib/utils"
+import { categoryLabel, priceLabel, type Service } from "@/lib/services"
 
 export function ServiceCard({
   service,
@@ -39,11 +39,7 @@ export function ServiceCard({
       <div className="p-4 flex flex-col flex-1 gap-3">
         <div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-1">
-            {service.category === "facial" && "Faciales"}
-            {service.category === "reductor" && "Reductor"}
-            {service.category === "laser" && "Láser & Micro"}
-            {service.category === "nails" && "Uñas"}
-            {service.category === "spa" && "Cabello & Spa"}
+            {categoryLabel[service.category]}
           </p>
           <h3 className="font-display text-xl leading-tight text-foreground group-hover:text-primary transition-colors">
             {service.name}
@@ -53,11 +49,18 @@ export function ServiceCard({
           </p>
         </div>
 
-        <div className="mt-auto flex items-center justify-between pt-3 border-t border-border">
-          <p className="font-display text-2xl text-foreground">
-            desde {formatPrice(service.price)}
-          </p>
-          <Button asChild size="sm">
+        <div className="mt-auto flex items-end justify-between gap-3 pt-3 border-t border-border">
+          <div className="min-w-0">
+            <p className="font-display text-2xl text-foreground leading-none">
+              {priceLabel(service)}
+            </p>
+            {service.priceNote && (
+              <p className="text-[10px] text-muted-foreground mt-1 leading-tight">
+                {service.priceNote}
+              </p>
+            )}
+          </div>
+          <Button asChild size="sm" className="shrink-0">
             <Link href={`/reservar?servicio=${service.id}`}>
               Reservar
             </Link>

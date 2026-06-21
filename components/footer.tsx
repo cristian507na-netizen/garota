@@ -47,11 +47,10 @@ export function Footer() {
           <ul className="space-y-2 text-sm">
             {[
               { label: "Todos los servicios", href: "/servicios" },
-              { label: "Faciales", href: "/servicios?cat=facial" },
-              { label: "Tratamientos Reductores", href: "/servicios?cat=reductor" },
-              { label: "Depilación Láser", href: "/servicios?cat=laser" },
-              { label: "Uñas & Nail Art", href: "/servicios?cat=nails" },
-              { label: "Cabello & Spa", href: "/servicios?cat=spa" },
+              { label: "Spa & Masajes", href: "/servicios?cat=spa" },
+              { label: "Depilación con Cera", href: "/servicios?cat=depilacion" },
+              { label: "Salón & Cabello", href: "/servicios?cat=salon" },
+              { label: "Uñas", href: "/servicios?cat=nails" },
             ].map((l) => (
               <li key={l.href}>
                 <Link

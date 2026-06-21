@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Suspense } from "react"
-import { Cormorant_Garamond, Jost } from "next/font/google"
+import { Fraunces, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Header } from "@/components/header"
@@ -8,16 +8,14 @@ import { Footer } from "@/components/footer"
 import { WhatsAppFloating } from "@/components/whatsapp-floating"
 import { site } from "@/lib/site"
 
-const jost = Jost({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans-stack",
   display: "swap",
 })
 
-const cormorant = Cormorant_Garamond({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-display-stack",
   display: "swap",
@@ -48,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${jost.variable} ${cormorant.variable}`}>
+    <html lang="es" className={`${inter.variable} ${fraunces.variable}`}>
       <body className="bg-background text-foreground antialiased">
         <Suspense fallback={null}>
           <Header />

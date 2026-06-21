@@ -42,7 +42,7 @@ export function ServiciosClient() {
           Buscar
         </p>
         <Input
-          placeholder="Facial, láser, uñas…"
+          placeholder="Masaje, tinte, uñas…"
           value={q}
           onChange={(e) => setQ(e.target.value)}
         />
