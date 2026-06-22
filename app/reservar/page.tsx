@@ -5,7 +5,8 @@ import { MessageCircle, ShieldCheck, Zap } from "lucide-react"
 export const metadata = {
   title: "Reservar Cita",
   description:
-    "Reserva tu cita en Garotas Salón & Spa. Elige tu servicio y te llega listo a WhatsApp en segundos.",
+    "Reserva tu cita en Garotas Salón & Spa, Bella Vista, Panamá City. Elige tu servicio y te llega listo a WhatsApp en segundos.",
+  alternates: { canonical: "/reservar" },
 }
 
 const trust = [

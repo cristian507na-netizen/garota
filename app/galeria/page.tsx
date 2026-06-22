@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 export const metadata = {
   title: "Galería",
   description:
-    "Galería de trabajos de Garotas Salón & Spa. Faciales, uñas, cabello y tratamientos reductores.",
+    "Galería de trabajos de Garotas Salón & Spa en Bella Vista, Panamá City. Faciales, uñas, cabello, tintes y tratamientos reductores.",
+  alternates: { canonical: "/galeria" },
 }
 
 const photos = [

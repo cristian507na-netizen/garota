@@ -406,8 +406,20 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Map embed — refuerza ubicación local */}
+          <div className="mt-12 max-w-4xl mx-auto rounded-3xl overflow-hidden border border-border shadow-sm bg-card">
+            <iframe
+              title={`Ubicación de ${site.name} — ${site.address}`}
+              src={`https://www.google.com/maps?q=${site.geo.lat},${site.geo.lng}&z=16&output=embed`}
+              className="w-full h-[300px] md:h-[380px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              aria-label={`Mapa con la ubicación de ${site.name} en ${site.neighborhood}, ${site.city}`}
+            />
+          </div>
+
           {/* Bottom CTA strip */}
-          <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button asChild size="lg">
               <Link href="/reservar">
                 Reservar mi cita

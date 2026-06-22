@@ -4,7 +4,8 @@ import { ServiciosClient } from "./servicios-client"
 export const metadata = {
   title: "Servicios",
   description:
-    "Catálogo completo de servicios: masajes, faciales, paquetes reductores, depilación con cera, cortes, tintes, mechas, keratinas y uñas en Garotas Salón & Spa, Panamá.",
+    "Catálogo completo de servicios: masajes, faciales, paquetes reductores, depilación con cera, cortes, tintes, mechas, keratinas y uñas en Garotas Salón & Spa, Bella Vista, Panamá City.",
+  alternates: { canonical: "/servicios" },
 }
 
 export default function ServiciosPage() {
