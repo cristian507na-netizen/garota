@@ -132,10 +132,20 @@ export default function HomePage() {
           </h1>
 
           {/* CTA row */}
-          <div className="mt-6 md:mt-9 flex items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200">
+          <div className="mt-6 md:mt-9 flex flex-wrap items-center gap-3 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200">
             <Button asChild size="lg" className="shadow-[0_8px_24px_rgba(180,60,60,0.35)]">
               <Link href="/reservar">Reservar cita</Link>
             </Button>
+            <Link
+              href="/promociones"
+              className="group inline-flex items-center gap-2.5 h-12 rounded-full border border-white/40 bg-white/10 px-5 text-sm font-medium uppercase tracking-[0.2em] text-white backdrop-blur-md hover:bg-white hover:text-primary hover:border-white transition-colors"
+            >
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full rounded-full bg-white/70 group-hover:bg-primary/50 animate-ping" />
+                <span className="relative size-2 rounded-full bg-white group-hover:bg-primary" />
+              </span>
+              Promociones
+            </Link>
             <a
               href={waLink(`Hola ${site.name} ✨, quiero información sobre sus servicios.`)}
               target="_blank"
