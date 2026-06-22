@@ -10,11 +10,12 @@ import { site } from "@/lib/site"
 import { Button } from "@/components/ui/button"
 
 const nav = [
-  { label: "Inicio",    href: "/" },
-  { label: "Servicios", href: "/servicios" },
-  { label: "Reservar",  href: "/reservar" },
-  { label: "Galería",   href: "/galeria" },
-  { label: "Contacto",  href: "/#contacto" },
+  { label: "Inicio",       href: "/" },
+  { label: "Servicios",    href: "/servicios" },
+  { label: "Promociones",  href: "/promociones" },
+  { label: "Reservar",     href: "/reservar" },
+  { label: "Galería",      href: "/galeria" },
+  { label: "Contacto",     href: "/#contacto" },
 ]
 
 export function Header() {
@@ -35,7 +36,7 @@ export function Header() {
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/"
-    if (href.startsWith("/#")) return pathname === "/"
+    if (href.startsWith("/#")) return false
     return pathname.startsWith(href)
   }
 
