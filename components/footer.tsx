@@ -24,7 +24,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="mt-4 text-sm text-foreground/70 leading-relaxed">
-            Realizamos tu belleza con
+            Realzamos tu belleza con
             <br />
             productos de calidad premium.
           </p>
@@ -108,6 +108,17 @@ export function Footer() {
               >
                 <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                 {site.whatsappDisplay}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={site.whatsapp2}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+                {site.whatsappDisplay2}
               </Link>
             </li>
             <li>

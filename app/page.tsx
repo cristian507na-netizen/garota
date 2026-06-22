@@ -245,8 +245,8 @@ export default function HomePage() {
             Reserva tu cita online
           </h2>
           <p className="text-muted-foreground mt-3 max-w-md mx-auto">
-            Elige tu servicio, fecha y hora favorita. Te confirmamos por
-            WhatsApp.
+            Elige tu servicio y te llega listo a WhatsApp. Te confirmamos la
+            disponibilidad al instante.
           </p>
         </div>
         <Suspense fallback={<div className="h-64 flex items-center justify-center text-muted-foreground">Cargando formulario…</div>}>
@@ -262,7 +262,7 @@ export default function HomePage() {
               Por qué elegirnos
             </p>
             <h2 className="font-display text-4xl md:text-6xl">
-              Realizamos tu belleza
+              Realzamos tu belleza
             </h2>
           </div>
 
@@ -338,6 +338,18 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground leading-relaxed mb-2">
                 {site.address}
               </p>
+              <p className="text-xs text-muted-foreground/80 leading-relaxed mb-3">
+                {site.landmarks}
+              </p>
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-foreground transition-colors mb-4"
+              >
+                Ver en Google Maps
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
               <p className="text-xs uppercase tracking-[0.2em] text-primary">
                 {site.hours}
               </p>
@@ -368,7 +380,7 @@ export default function HomePage() {
                 <ArrowRight className="h-4 w-4" />
               </a>
               <p className="mt-4 text-xs text-primary-foreground/60">
-                {site.whatsappDisplay}
+                {site.whatsappDisplay} · {site.whatsappDisplay2}
               </p>
             </div>
 
