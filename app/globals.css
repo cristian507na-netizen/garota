@@ -12,24 +12,24 @@
   --color-popover: oklch(0.985 0.004 25);
   --color-popover-foreground: oklch(0.14 0.01 25);
 
-  --color-primary: oklch(0.60 0.14 15);             /* dusty rose-red */
+  --color-primary: oklch(0.55 0.19 24);             /* salon red */
   --color-primary-foreground: oklch(0.99 0.003 30);
 
-  --color-secondary: oklch(0.95 0.014 15);          /* blush pink */
+  --color-secondary: oklch(0.95 0.022 22);          /* soft red blush */
   --color-secondary-foreground: oklch(0.25 0.01 25);
 
-  --color-muted: oklch(0.93 0.008 25);              /* soft warm gray */
-  --color-muted-foreground: oklch(0.50 0.012 25);
+  --color-muted: oklch(0.93 0.010 22);              /* soft warm gray */
+  --color-muted-foreground: oklch(0.50 0.014 24);
 
-  --color-accent: oklch(0.93 0.018 15);             /* light rose */
+  --color-accent: oklch(0.92 0.030 22);             /* light red rose */
   --color-accent-foreground: oklch(0.14 0.01 25);
 
   --color-destructive: oklch(0.55 0.22 27);
   --color-destructive-foreground: oklch(0.99 0.005 95);
 
-  --color-border: oklch(0.88 0.014 20);             /* warm soft border */
-  --color-input: oklch(0.90 0.010 22);
-  --color-ring: oklch(0.60 0.14 15);
+  --color-border: oklch(0.88 0.018 22);             /* warm red-tinted border */
+  --color-input: oklch(0.90 0.013 22);
+  --color-ring: oklch(0.55 0.19 24);
 
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
